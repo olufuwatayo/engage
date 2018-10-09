@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+apt-get update -y
+apt-get install git -y
+git clone
+apt-get install python -y
+apt-get install python-pip -y
+apt-get install ansible -y

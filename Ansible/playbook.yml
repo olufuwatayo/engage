@@ -1,0 +1,6 @@
+---
+- name: install and configure webservers
+hosts: local
+sudo: yes
+roles:
+   - webservers
