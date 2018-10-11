@@ -1,6 +1,7 @@
 ---
-- name: install and configure webservers
-hosts: local
-sudo: yes
-roles:
-   - webserver
+
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  roles:
+   - webservers
