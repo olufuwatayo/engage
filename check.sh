@@ -23,13 +23,15 @@ if [ $? -ne 0 ]; then
 	echo "Service not available or accessible"
 	exit 1
 fi
-#verify validity of response - expecting number
-isnumber $remotetime
-if [ $? -ne 0 ]; then
-	#case if server returns something outher than number - lire service not available or similar...
-	echo "Not number - some error on server side. Server returned \"$remotetime\""
-	exit 1
-fi
+
+# #verify validity of response - expecting number
+# isnumber $remotetime
+# if [ $? -ne 0 ]; then
+# 	#case if server returns something outher than number - lire service not available or similar...
+# 	echo "Not number - some error on server side. Server returned \"$remotetime\""
+# 	exit 1
+# fi
+
 #calculate difference in time
 diff=$(($localtime-$remotetime))
 echo "Time difference is $diff"
