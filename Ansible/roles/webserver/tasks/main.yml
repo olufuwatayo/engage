@@ -21,11 +21,13 @@
     - php-sqlite3
     - php-apcu
 
-- name: Create the directory for the now app
-- file:
+- name: Creates directory
+  file:
     path: /var/www/html/now
     state: directory
-    mode: 0755
+    owner: www-data
+    group: www-data
+    mode: 0775
 
 - name: copy application code to document root
   template: src=index.php.j2 dest=/var/www/html/now/index.php
