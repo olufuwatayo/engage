@@ -23,8 +23,8 @@
 
 - name: Create the directory for the now app
 - file:
-    path: /var/www/html/
-    state: now
+    path: /var/www/html/now
+    state: directory
     mode: 0755
 
 - name: copy application code to document root
