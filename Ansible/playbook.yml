@@ -3,4 +3,4 @@
 hosts: local
 sudo: yes
 roles:
-   - webservers
+   - webserver

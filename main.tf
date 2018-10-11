@@ -20,11 +20,17 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+data "template_file" "user_data" {
+  template = "${file("userdata.tpl")}"
+} 
+
 resource "aws_instance" "web_service" {
   ami           = "${data.aws_ami.ubuntu.id}"
   instance_type = "t2.micro"
   key_name      = "ty"
-  user_data     = "${var.user_data}"
+  security_groups = ["website-sg"]
+  user_data     = "${data.template_file.user_data.rendered}"
+  
 
   tags {
     Name = "web_service"
